@@ -54,7 +54,7 @@ if(isset($_GET["call_first"])){
 }
 if(isset($_GET["order_date"])){
   $order_date = $_GET["order_date"];
-  $stmt = $connect->prepare('select * from pizza_order WHERE `order_date` LIKE :order_date');
+  $stmt = $connect->prepare('select * from pizza_order WHERE `order_date` LIKE %:order_date%');
   $stmt->bindParam(':order_date', $order_date, PDO::PARAM_STR, 30);
 }
 
