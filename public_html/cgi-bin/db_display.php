@@ -25,7 +25,8 @@ $stmt->bindParam(':topping', $topping, PDO::PARAM_STR, 30);
 $stmt->execute();
 $result = $stmt->fetchAll();
 foreach($result as $row){
-    echo "<li>{$row['topping']}</li>";
+    echo "<li>{$row['order_number']}{$row['id_number']}{$row['name']}{$row['email']}{$row['phone_number']}
+    {$row['topping']}{$row['pay_method']}{$row['call_first']}{$row['order_date']}</li>";
 }
 
 $connect=null;
