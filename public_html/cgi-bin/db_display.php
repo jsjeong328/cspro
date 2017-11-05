@@ -25,7 +25,7 @@ $stmt->bindParam(':topping', $topping, PDO::PARAM_STR, 30);
 $stmt->execute();
 $result = $stmt->fetchAll();
 foreach($result as $row){
-    echo "<li>{$row['order']}</li>";
+    echo "<li>{$row['topping']}</li>";
 }
 
 $connect=null;
