@@ -5,19 +5,13 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-echo ("MySQL - PHP Connect Test <br/>");
+echo ("Order Complete!<br/>");
 $hostname = "localhost";
 $username = "cs20101697";
 $password = "dbpass";
 $dbname = "db20101697";
 
 $connect = new PDO("mysql:dbname=$dbname;host=$hostname", $username, $password) or die("DB Connection Failed");
-if($connect) {
- echo("MySQL Server Connect Success!");
-}
-else {
- echo("MySQL Server Connect Failed!");
-}
 
 //define variables and set to empty values
 $idnumber = $name = $email = $phone = $topping = $paymethod = $callfirst = "";
