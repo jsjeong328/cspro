@@ -47,7 +47,7 @@ if(is_int($_POST["idnumber"])){
   $connect=null;
   echo ("Order Complete!<br/>");
 }else{
-  echo ("ID number must be int");
+  echo ("ERROR : ID number must be int");
 }
 
 ?>
