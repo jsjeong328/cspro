@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $paymethod = validation_check($_POST["paymethod"]);
   $callfirst = validation_check($_POST["callfirst"]);
 }
-if(is_numeric($_POST["idnumber"])){
+if(is_int($_POST["idnumber"])){
   $stmt = $connect->prepare('INSERT INTO `pizza_order` (id_number, name, email, phone_number, topping, pay_method, call_first, order_date)
   VALUES(:idnumber, :name, :email, :phone, :topping, :paymethod, :callfirst, NOW())');
 
@@ -47,7 +47,7 @@ if(is_numeric($_POST["idnumber"])){
   $connect=null;
   echo ("Order Complete!<br/>");
 }else{
-  echo ("ID number must be numbers");
+  echo ("ID number must be int");
 }
 
 ?>
