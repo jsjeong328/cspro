@@ -5,7 +5,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-echo ("MySQL - PHP Connect Test <br/>");
+echo ("<h1>Search Result</h1><br/>");
 $hostname = "localhost";
 $username = "cs20101697";
 $password = "dbpass";
