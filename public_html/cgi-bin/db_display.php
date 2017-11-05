@@ -13,10 +13,10 @@ $dbname = "db20101697";
 
 $connect = new PDO("mysql:dbname=$dbname;host=$hostname", $username, $password) or die("DB Connection Failed");
 if($connect) {
- echo("MySQL Server Connect Success!");
+ echo("<hr>MySQL Server Connect Success!<hr>");
 }
 else {
- echo("MySQL Server Connect Failed!");
+ echo("<hr>MySQL Server Connect Failed!<hr>");
 }
 
 $topping = $_GET["topping"];
