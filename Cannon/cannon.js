@@ -53,6 +53,9 @@ var targetSound;
 var cannonSound;
 var blockerSound;
 
+// variables for cannonball bouncing
+var bounceCount;
+
 // called when the app first launches
 function setupGame()
 {
@@ -64,7 +67,7 @@ function setupGame()
    context = canvas.getContext("2d");
 
    // start a new game when user clicks Start Game button
-   document.getElementById( "startButton" ).addEventListener( 
+   document.getElementById( "startButton" ).addEventListener(
       "click", newGame, false );
 
    // JavaScript Object representing game items
@@ -160,6 +163,7 @@ function newGame()
    cannonballOnScreen = false; // the cannonball is not on the screen
    shotsFired = 0; // set the initial number of shots fired
    timeElapsed = 0; // set the time elapsed to zero
+   bounceCount = 5;
 
    startTimer(); // starts the game loop
 } // end function newGame
@@ -194,49 +198,67 @@ function updatePositions()
       cannonball.y += interval * cannonballVelocityY;
 
       // check for collision with blocker
-      if ( cannonballVelocityX > 0 && 
+      if (
          cannonball.x + cannonballRadius >= blockerDistance &&
          cannonball.x + cannonballRadius <= blockerDistance + lineWidth &&
          cannonball.y - cannonballRadius > blocker.start.y &&
          cannonball.y + cannonballRadius < blocker.end.y)
       {
+
          blockerSound.play(); // play blocker hit sound
          cannonballVelocityX *= -1; // reverse cannonball's direction
-         timeLeft -= MISS_PENALTY; // penalize the user
+         bounceCount--;
+         if(bounceCount==0){
+           bounceCount=5;
+           cannonballOnScreen = false;
+         }
       } // end if
-
       // check for collisions with left and right walls
-      else if (cannonball.x + cannonballRadius > canvasWidth || 
+      else if (cannonball.x + cannonballRadius > canvasWidth ||
          cannonball.x - cannonballRadius < 0)
       {
-         cannonballOnScreen = false; // remove cannonball from screen
+         blockerSound.play()
+         cannonballVelocityX *=-1;
+         bounceCount--;
+         if(bounceCount==0){
+           bounceCount=5;
+           cannonballOnScreen = false;
+         }
       } // end else if
 
       // check for collisions with top and bottom walls
-      else if (cannonball.y + cannonballRadius > canvasHeight || 
+      else if (cannonball.y + cannonballRadius > canvasHeight ||
          cannonball.y - cannonballRadius < 0)
       {
-         cannonballOnScreen = false; // make the cannonball disappear
+         blockerSound.play()
+         cannonballVelocityY *=-1;
+         bounceCount--;
+         if(bounceCount==0){
+           bounceCount=5;
+           cannonballOnScreen = false;
+         }
       } // end else if
 
       // check for cannonball collision with target
-      else if (cannonballVelocityX > 0 && 
+      else if (
          cannonball.x + cannonballRadius >= targetDistance &&
          cannonball.x + cannonballRadius <= targetDistance + lineWidth &&
          cannonball.y - cannonballRadius > target.start.y &&
          cannonball.y + cannonballRadius < target.end.y)
       {
          // determine target section number (0 is the top)
-         var section = 
+         var section =
             Math.floor((cannonball.y  - target.start.y) / pieceLength);
 
          // check whether the piece hasn't been hit yet
-         if ((section >= 0 && section < TARGET_PIECES) && 
+         if ((section >= 0 && section < TARGET_PIECES) &&
             !hitStates[section])
          {
             targetSound.play(); // play target hit sound
             hitStates[section] = true; // section was hit
-            cannonballOnScreen = false; // remove cannonball
+            cannonballOnScreen = true; // remove cannonball
+            cannonballVelocityX *=-1;
+            cannonballVelocityY *=-1;
             timeLeft += HIT_REWARD; // add reward to remaining time
 
             // if all pieces have been hit
@@ -247,6 +269,12 @@ function updatePositions()
                showGameOverDialog("You Won!"); // show winning dialog
             } // end if
          } // end if
+
+         bounceCount--;
+         if(bounceCount==0){
+           bounceCount=5;
+           cannonballOnScreen = false;
+         }
       } // end else if
    } // end if
 
@@ -269,7 +297,6 @@ function updatePositions()
       showGameOverDialog("You lost"); // show the losing dialog
    } // end if
 } // end function updatePositions
-
 // fires a cannonball
 function fireCannonball(event)
 {
@@ -297,7 +324,7 @@ function fireCannonball(event)
 // aligns the cannon in response to a mouse click
 function alignCannon(event)
 {
-   // get the location of the click 
+   // get the location of the click
    var clickPoint = new Object();
    clickPoint.x = event.x;
    clickPoint.y = event.y;
@@ -318,7 +345,7 @@ function alignCannon(event)
 
    // calculate the end point of the cannon's barrel
    barrelEnd.x = (cannonLength * Math.sin(angle)).toFixed(0);
-   barrelEnd.y = 
+   barrelEnd.y =
       (-cannonLength * Math.cos(angle) + canvasHeight / 2).toFixed(0);
 
    return angle; // return the computed angle
@@ -337,10 +364,10 @@ function draw()
 
    // if a cannonball is currently on the screen, draw it
    if (cannonballOnScreen)
-   { 
+   {
       context.fillStyle = "gray";
       context.beginPath();
-      context.arc(cannonball.x, cannonball.y, cannonballRadius, 
+      context.arc(cannonball.x, cannonball.y, cannonballRadius,
          0, Math.PI * 2);
       context.closePath();
       context.fill();
@@ -350,7 +377,7 @@ function draw()
    context.beginPath(); // begin a new path
    context.strokeStyle = "black";
    context.moveTo(0, canvasHeight / 2); // path origin
-   context.lineTo(barrelEnd.x, barrelEnd.y); 
+   context.lineTo(barrelEnd.x, barrelEnd.y);
    context.lineWidth = lineWidth; // line width
    context.stroke(); //draw path
 
@@ -364,14 +391,14 @@ function draw()
    // draw the blocker
    context.beginPath(); // begin a new path
    context.moveTo(blocker.start.x, blocker.start.y); // path origin
-   context.lineTo(blocker.end.x, blocker.end.y); 
+   context.lineTo(blocker.end.x, blocker.end.y);
    context.lineWidth = lineWidth; // line width
    context.stroke(); //draw path
 
    // initialize currentPoint to the starting point of the target
    var currentPoint = new Object();
    currentPoint.x = target.start.x;
-   currentPoint.y = target.start.y; 
+   currentPoint.y = target.start.y;
 
    // draw the target
    for (var i = 0; i < TARGET_PIECES; ++i)
@@ -388,11 +415,11 @@ function draw()
             context.strokeStyle = "blue";
 
          context.moveTo(currentPoint.x, currentPoint.y); // path origin
-         context.lineTo(currentPoint.x, currentPoint.y + pieceLength); 
+         context.lineTo(currentPoint.x, currentPoint.y + pieceLength);
          context.lineWidth = lineWidth; // line width
          context.stroke(); // draw path
       } // end if
-	 
+
       // move currentPoint to the start of the next piece
       currentPoint.y += pieceLength;
    } // end for
@@ -401,8 +428,8 @@ function draw()
 // display an alert when the game ends
 function showGameOverDialog(message)
 {
-   alert(message + "\nShots fired: " + shotsFired + 
-      "\nTotal time: " + timeElapsed + " seconds ");
+  $('#gameover').html(message + "\nShots fired: " + shotsFired +
+     "\nTotal time: " + timeElapsed + " seconds ");
 } // end function showGameOverDialog
 
 window.addEventListener("load", setupGame, false);
