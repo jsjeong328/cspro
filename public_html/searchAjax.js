@@ -15,7 +15,7 @@ var runAutoComplete = (function(){
           //     value: item
           //   }
           // }));
-          $('#result').html(data);
+          $("#result").html(data);
           console.log(data);
         }
       });
