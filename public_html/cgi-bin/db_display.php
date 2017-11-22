@@ -65,18 +65,8 @@ if(count($result)==0){
   echo "No Search Result";
 }else{
   foreach($result as $row){
-      echo "
-        <li>
-          Order Number : {$row['order_number']}
-          ID Number : {$row['id_number']}
-          Name : {$row['name']}
-          E-mail : {$row['email']}
-          Phone : {$row['phone_number']}
-          Topping : {$row['topping']}
-          Pay Method : {$row['pay_method']}
-          Call First : {$row['call_first']}
-          Order Date : {$row['order_date']}
-        </li>";
+    $timezones = ["Asia/Seoul", "America/New_York"];
+    echo json_encode($timezones);
   }
 }
 
