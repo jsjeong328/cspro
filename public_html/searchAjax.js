@@ -8,9 +8,9 @@ var runAutoComplete = (function(){
         , url: ajaxUrl
         , dataType: "json"
         , data: {"order_number" : 1}
-        , success: function(data){
-          console.log(data);
-        }
+        // , success: function(data){
+        //   console.log(data);
+        // }
       });
     },
     minLength: 2,
