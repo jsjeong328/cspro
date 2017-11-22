@@ -9,6 +9,7 @@ var runAutoComplete = (function(){
         , data: {"order_number" : request.term}
         , success: function(data) {
           console.log(data);
+          $('#result').html(data);
           // response( $.map( data, function( item ) {
           //   return {
           //     label: item,
