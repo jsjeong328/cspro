@@ -8,12 +8,13 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"order_number" : request.term}
         , success: function(data) {
-          response( $.map( data, function( item ) {
-            return {
-              label: item.attr('order_number'),
-              value: item.attr('order_number')
-            }
-          }));
+          console.log(data);
+          // response( $.map( data, function( item ) {
+          //   return {
+          //     label: item,
+          //     value: item
+          //   }
+          // }));
         }
       });
     },
