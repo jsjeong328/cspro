@@ -29,7 +29,6 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"id_number" : request.term}
         , success: function(data) {
-           console.log(data);
           response( $.map( data, function( item ) {
             return {
               label: item,
@@ -50,7 +49,6 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"name" : request.term}
         , success: function(data) {
-          console.log(data);
           response( $.map( data, function( item ) {
             return {
               label: item,
@@ -71,7 +69,6 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"email" : request.term}
         , success: function(data) {
-          console.log(data);
           response( $.map( data, function( item ) {
             return {
               label: item,
