@@ -61,8 +61,8 @@ if(count($result)==0){
   echo "No Search Result";
 }else{
 
-    echo json_encode($row);
-  
+    echo json_encode($result);
+
 }
 
 
