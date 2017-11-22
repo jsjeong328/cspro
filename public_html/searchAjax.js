@@ -28,12 +28,13 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"id_number" : request.term}
         , success: function(data) {
-          response( $.map( data, function( item ) {
-            return {
-              label: item,
-              value: item
-            }
-          }));
+          console.log(data)
+          // response( $.map( data, function( item ) {
+          //   return {
+          //     label: item,
+          //     value: item
+          //   }
+          // }));
         }
       });
     },
