@@ -10,8 +10,8 @@ var runAutoComplete = (function(){
         , success: function(data) {
           response( $.map( data, function( item ) {
             return {
-              label: 'item',
-              value: 'item'
+              label: item,
+              value: item
             }
           }));
         }
@@ -29,10 +29,11 @@ var runAutoComplete = (function(){
         , data: {"id_number" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow;
             console.log(item[0]);
             return {
-              label: item[0],
-              value: item[0]
+              label: item[0].id_number,
+              value: item[0].id_number
             }
           }));
         }
@@ -51,8 +52,8 @@ var runAutoComplete = (function(){
         , success: function(data) {
           response( $.map( data, function( item ) {
             return {
-              label: item,
-              value: item
+              label: item[0].name,
+              value: item[0].name
             }
           }));
         }
