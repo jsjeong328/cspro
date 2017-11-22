@@ -33,7 +33,7 @@ var runAutoComplete = (function(){
             $('#result').html(item);
             return {
               label: item,
-              value: item[]
+              value: item
             }
           }));
         }
