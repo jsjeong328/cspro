@@ -29,6 +29,7 @@ var runAutoComplete = (function(){
         , data: {"id_number" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            console.log(item);
             return {
               label: item,
               value: item
