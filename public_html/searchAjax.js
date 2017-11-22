@@ -29,11 +29,10 @@ var runAutoComplete = (function(){
         , data: {"id_number" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
-            var toShow;
-            console.log(item[0][id_number]);
+            console.log(item.id_number);
             return {
-              label: item[0].id_number,
-              value: item[0].id_number
+              label: item[0],
+              value: item[0]
             }
           }));
         }
@@ -51,6 +50,7 @@ var runAutoComplete = (function(){
         , data: {"name" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            console.log(item.name);
             return {
               label: item[0].name,
               value: item[0].name
