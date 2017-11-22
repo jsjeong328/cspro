@@ -7,9 +7,14 @@ var runAutoComplete = (function(){
           type: 'get'
         , url: ajaxUrl
         , dataType: "json"
-        , data: {"order_number" : 1}
+        , data: {"order_number" : request.term}
         , success: function(data) {
-          return data;
+          response( $.map( data, function( item ) {
+            return {
+              label: item,
+              value: item
+            }
+          }));
         }
       });
     },
