@@ -30,9 +30,10 @@ var runAutoComplete = (function(){
         , success: function(data) {
           response( $.map( data, function( item ) {
             console.log(item);
+            $('#result').html(item);
             return {
               label: item,
-              value: item
+              value: item[]
             }
           }));
         }
