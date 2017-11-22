@@ -1,64 +1,70 @@
-<TITLE>Fill-Out Form Example #7</TITLE>
-<H1>Pizza Order Search</H1>
-<HR>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by order_number</div>
-    <INPUT NAME="order_number">
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by id_number</div>
-    <INPUT NAME="id_number">
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by name</div>
-    <INPUT NAME="name">
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by email</div>
-    <INPUT NAME="email">
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by phone_number</div>
-    <INPUT NAME="phone_number">
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by topping</div>
-    <OL>
-      <LI> <INPUT TYPE="checkbox" NAME="topping" VALUE="pepperoni"> Pepperoni.
-      <LI> <INPUT TYPE="checkbox" NAME="topping" VALUE="sausage"> Sausage.
-      <LI> <INPUT TYPE="checkbox" NAME="topping" VALUE="anchovies"> Anchovies.
-    </OL>
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by pay_method</div>
-    <OL>
-      <LI> <INPUT TYPE="radio" NAME="pay_method" VALUE="cash" CHECKED> Cash.
-      <LI> <INPUT TYPE="radio" NAME="pay_method" VALUE="check"> Check.
-      <LI> <I>Credit card:</I>
-      <UL>
-        <LI> <INPUT TYPE="radio" NAME="pay_method" VALUE="mastercard"> Mastercard.
-        <LI> <INPUT TYPE="radio" NAME="pay_method" VALUE="visa"> Visa.
-        <LI> <INPUT TYPE="radio" NAME="pay_method" VALUE="americanexpress"> American Express.
-      </UL>
-    </OL>
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by call_first</div>
-    <DL>
-      <DD> <INPUT TYPE="radio" NAME="call_first" VALUE="yes" CHECKED> <I>Yes.</I>
-      <DD> <INPUT TYPE="radio" NAME="call_first" VALUE="no"> <I>No.</I>
-    </DL>
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
-  <FORM METHOD="GET" ACTION="http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php">
-    <div>find by order_date</div>
-      <INPUT NAME="order_date">
-    <INPUT TYPE="submit"VALUE="search">
-  </FORM>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PizzaOrderSearchByAJAX</title>
+  </head>
+  <body>
+    <H1>Pizza Order Search</H1>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <div>find by order number</div>
+    <input id="order_number">
+    <p>result</p>
+    <div id="order_number_result"></div>
+    <HR>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js">
+    </script>
+    <script src="searchAjax.js"></script>
+  </body>
+</html>
