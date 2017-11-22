@@ -63,7 +63,7 @@ if(count($result)==0){
   // foreach($result as $row){
   //   $output.= $row;
   // }
-  echo json_encode($output);
+  echo json_encode($result);
 }
 
 
