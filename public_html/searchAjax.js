@@ -3,7 +3,7 @@ var runAutoComplete = (function(){
   var $target = $('.target').on('click', function(){
     return $(this).attr('id');
   })
-  console.log($target);
+  console.log("#"+$target);
   $("#"+$target).autocomplete({
     source: function(request, response){
       $.ajax({
