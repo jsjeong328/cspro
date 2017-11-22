@@ -1,6 +1,3 @@
-<html>
-<body>
-
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -60,7 +57,7 @@ if(isset($_GET["order_date"])){
 
 $stmt->execute();
 $result = $stmt->fetchAll();
-echo ("<h1>Search Result</h1><br/>");
+// echo ("<h1>Search Result</h1><br/>");
 if(count($result)==0){
   echo "No Search Result";
 }else{
@@ -73,6 +70,3 @@ if(count($result)==0){
 
 $connect=null;
 ?>
-
-</body>
-</html>
