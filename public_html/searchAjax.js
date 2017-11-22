@@ -50,10 +50,10 @@ var runAutoComplete = (function(){
         , data: {"name" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
-            console.log(item.name);
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item[0].name,
-              value: item[0].name
+              label: toShow,
+              value: toShow
             }
           }));
         }
