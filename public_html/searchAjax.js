@@ -9,9 +9,10 @@ var runAutoComplete = (function(){
         , data: {"order_number" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -29,10 +30,10 @@ var runAutoComplete = (function(){
         , data: {"id_number" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
-            console.log(item.id_number);
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item[0],
-              value: item[0]
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -71,9 +72,10 @@ var runAutoComplete = (function(){
         , data: {"email" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -91,9 +93,10 @@ var runAutoComplete = (function(){
         , data: {"phone_number" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -111,9 +114,10 @@ var runAutoComplete = (function(){
         , data: {"topping" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -131,9 +135,10 @@ var runAutoComplete = (function(){
         , data: {"pay_method" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -151,9 +156,10 @@ var runAutoComplete = (function(){
         , data: {"call_first" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
@@ -171,9 +177,10 @@ var runAutoComplete = (function(){
         , data: {"order_date" : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
+            var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
             return {
-              label: item,
-              value: item
+              label: toShow,
+              value: toShow
             }
           }));
         }
