@@ -30,7 +30,7 @@ var runAutoComplete = (function(){
         , success: function(data) {
           response( $.map( data, function( item ) {
             var toShow;
-            console.log(item[0].id_number);
+            console.log(item[0][id_number]);
             return {
               label: item[0].id_number,
               value: item[0].id_number
