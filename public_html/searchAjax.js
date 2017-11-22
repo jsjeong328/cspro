@@ -1,9 +1,17 @@
 var runAutoComplete = (function(){
   var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
-  $('.target').on('click', function(){
-    var $target  = $(this).attr('id');
-  })
-  console.log("#"+$target);
+  var $target;
+  $.when(function(){
+    $('.target').on('click', function(){
+      $target  = $(this).attr('id');
+    })
+  }).done(console.log("#"+$target););
+  $.when(function(){
+    $('.target').on('click', function(){
+      $target  = $(this).attr('id');
+    })
+  }).done(console.log(1));
+
   $("#"+$target).autocomplete({
     source: function(request, response){
       $.ajax({
