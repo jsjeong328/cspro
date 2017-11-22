@@ -61,8 +61,6 @@ if(count($result)==0){
   echo "No Search Result";
 }else{
   foreach($result as $row){
-    $timezones = ["Asia/Seoul", "America/New_York"];
-
     echo json_encode($row);
   }
 }
