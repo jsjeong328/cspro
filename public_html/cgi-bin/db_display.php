@@ -61,7 +61,7 @@ if(count($result)==0){
   echo "No Search Result";
 }else{
   foreach($result as $row){
-    $output.= $row
+    $output.= $row;
   }
   echo json_encode($output);
 }
