@@ -9,12 +9,13 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"order_number" : request.term}
         , success: function(data) {
-          response( $.map( data, function( item ) {
-            return {
-              label: item,
-              value: item
-            }
-          }));
+          // response( $.map( data, function( item ) {
+          //   return {
+          //     label: item,
+          //     value: item
+          //   }
+          // }));
+          $('#result').html(data);
         }
       });
     },
