@@ -1,7 +1,7 @@
 var runAutoComplete = (function(){
   var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
-  var $target = $('.target').on('click', function(){
-    return $(this).attr('id');
+  $('.target').on('click', function(){
+    var $target  = $(this).attr('id');
   })
   console.log("#"+$target);
   $("#"+$target).autocomplete({
