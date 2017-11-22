@@ -60,9 +60,9 @@ $result = $stmt->fetchAll();
 if(count($result)==0){
   echo "No Search Result";
 }else{
-  foreach($result as $row){
+
     echo json_encode($row);
-  }
+  
 }
 
 
