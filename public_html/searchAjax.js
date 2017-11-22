@@ -1,6 +1,5 @@
 var runAutoComplete = (function(){
   var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
-
   $("#order_number").autocomplete({
     source: function(request, response){
       $.ajax({
