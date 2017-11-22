@@ -16,6 +16,7 @@ var runAutoComplete = (function(){
           //   }
           // }));
           $('#result').html(data);
+          console.log(data);
         }
       });
     },
