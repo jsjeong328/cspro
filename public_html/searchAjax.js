@@ -1,15 +1,15 @@
 var runAutoComplete = (function(){
   var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
-  $('.target').on('click', function(){
-    console.log($(this).attr('id'));
+  var $target = $('.target').on('click', function(){
+    return $(this).attr('id');
   })
-  $("#order_number").autocomplete({
+  $("#"+$target).autocomplete({
     source: function(request, response){
       $.ajax({
           type: 'get'
         , url: ajaxUrl
         , dataType: "json"
-        , data: {"order_number" : request.term}
+        , data: {$target : request.term}
         , success: function(data) {
           response( $.map( data, function( item ) {
             return {
