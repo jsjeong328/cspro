@@ -10,8 +10,8 @@ var runAutoComplete = (function(){
         , success: function(data) {
           response( $.map( data, function( item ) {
             return {
-              label: item,
-              value: item
+              label: item.attr('order_number'),
+              value: item.attr('order_number')
             }
           }));
         }
