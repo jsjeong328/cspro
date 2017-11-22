@@ -1,11 +1,7 @@
 var runAutoComplete = (function(){
   var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
   var $target;
-  $.when(function(){
-    $('.target').on('click', function(){
-      $target  = $(this).attr('id');
-    })
-  }).done(console.log("#"+$target););
+  
   $.when(function(){
     $('.target').on('click', function(){
       $target  = $(this).attr('id');
