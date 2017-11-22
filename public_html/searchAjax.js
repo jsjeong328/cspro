@@ -28,7 +28,7 @@ var runAutoComplete = (function(){
         , dataType: "json"
         , data: {"id_number" : request.term}
         , success: function(data) {
-          console.log(data)
+          $('#result').html(data);
           // response( $.map( data, function( item ) {
           //   return {
           //     label: item,
