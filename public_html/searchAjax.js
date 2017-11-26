@@ -13,14 +13,15 @@ var runAutoComplete = (function(){
         +'<HR>';
     });
     $("#selectbox").html( str );
-    console.log($opt);
     $("#"+$opt+"").autocomplete({
       source: function(request, response){
+        // console.log($(this).text())
+        // console.log($opt)
         $.ajax({
             type: 'get'
           , url: ajaxUrl
           , dataType: "json"
-          , data: {"order_number" : request.term}
+          , data: {""+$opt+"" : request.term}
           , success: function(data) {
             response( $.map( data, function( item ) {
               var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
