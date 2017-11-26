@@ -13,7 +13,7 @@ var runAutoComplete = (function(){
         +'<HR>';
     });
     $("#selectbox").html( str );
-
+    console.log($opt);
     $("#"+$opt+"").autocomplete({
       source: function(request, response){
         $.ajax({
