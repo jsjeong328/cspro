@@ -82,6 +82,23 @@
     </script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
     </script>
+    <script>
+      $( "select" ).on('change', function() {
+        console.log(1);
+        var str = "";
+        $( "select option:selected" ).each(function() {
+          // str += $( this ).text() + " ";
+          var $opt = $(this).text();
+          str +=
+             '<div class="ui-widget">'
+              +'<label for="'+$opt+'">find by '+$opt+': </label>'
+              +'<input id="'+$opt+'">'
+            +'</div>'
+            +'<HR>';
+        });
+        $("#selectbox").html( str );
+      }).trigger( "change" );
+    </script>
     <script src="searchAjax.js"></script>
   </body>
 </html>
