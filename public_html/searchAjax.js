@@ -1,4 +1,21 @@
 var runAutoComplete = (function(){
+  var selectFunc = (function(){
+    $( "select" ).on('change', function() {
+      var str = "";
+      $( "select option:selected" ).each(function() {
+        // str += $( this ).text() + " ";
+        var $opt = $(this).text();
+        str +=
+           '<div class="ui-widget">'
+            +'<label for="'+$opt+'">find by '+$opt+': </label>'
+            +'<input id="'+$opt+'">'
+          +'</div>'
+          +'<HR>';
+      });
+      $("#selectbox").html( str );
+    }).trigger( "change" );
+  }());
+
   var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
   $("#order_number").autocomplete({
     source: function(request, response){
