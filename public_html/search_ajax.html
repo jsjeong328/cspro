@@ -85,8 +85,9 @@
     <script>
     $( "select" ).on('change', function() {
       var str = "";
+      var $opt = "";
       $( "select option:selected" ).each(function() {
-        var $opt = $(this).text();
+        $opt = $(this).text();
         str +=
            '<div class="ui-widget">'
             +'<label for="'+$opt+'">find by '+$opt+': </label>'
