@@ -20,7 +20,7 @@ var runAutoComplete = (function(){
             type: 'get'
           , url: ajaxUrl
           , dataType: "json"
-          , data: {$opt : request.term}
+          , data: {"order_number" : request.term}
           , success: function(data) {
             response( $.map( data, function( item ) {
               var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
