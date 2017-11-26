@@ -5,7 +5,7 @@ var runAutoComplete = (function(){
   $( "select" ).on('change', function() {
     $( "select option:selected" ).each(function() {
       $opt = $(this).text();
-      str +=
+      str =
          '<div class="ui-widget">'
           +'<label for="'+$opt+'">find by '+$opt+': </label>'
           +'<input id="'+$opt+'">'
