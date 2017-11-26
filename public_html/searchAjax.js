@@ -17,11 +17,12 @@ var runAutoComplete = (function(){
       source: function(request, response){
         // console.log($(this).text())
         // console.log($opt)
+        $opt.toString();
         $.ajax({
             type: 'get'
           , url: ajaxUrl
           , dataType: "json"
-          , data: {""+$opt+"" : request.term}
+          , data: {$opt : request.term}
           , success: function(data) {
             response( $.map( data, function( item ) {
               var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
