@@ -1,6 +1,7 @@
 var runAutoComplete = (function(){
   var selectFunc = (function(){
     $( "select" ).on('change', function() {
+      console.log(1);
       var str = "";
       $( "select option:selected" ).each(function() {
         // str += $( this ).text() + " ";
