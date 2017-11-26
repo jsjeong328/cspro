@@ -2,7 +2,6 @@ var runAutoComplete = (function(){
   $( "select" ).on('change', function() {
     var str = "";
     $( "select option:selected" ).each(function() {
-      // str += $( this ).text() + " ";
       var $opt = $(this).text();
       str +=
          '<div class="ui-widget">'
