@@ -21,104 +21,10 @@
     </select>
 
     <div id="selectbox"></div>
-
-    <!-- <div class="ui-widget">
-      <label for="order_number">find by order number: </label>
-      <input id="order_number">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="id_number">find by id number: </label>
-      <input id="id_number">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="name">find by name: </label>
-      <input id="name">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="email">find by email: </label>
-      <input id="email">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="phone_number">find by phone_number: </label>
-      <input id="phone_number">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="topping">find by topping: </label>
-      <input id="topping">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="pay_method">find by pay_method: </label>
-      <input id="pay_method">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="call_first">find by call_first: </label>
-      <input id="call_first">
-    </div>
-    <HR>
-
-    <div class="ui-widget">
-      <label for="order_date">find by order date: </label>
-      <input id="order_date">
-    </div>
-    <HR>
-
-    <div id="result"></div> -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
     </script>
-    <script>
-    $( "select" ).on('change', function() {
-      var str = "";
-      var $opt = "";
-      $( "select option:selected" ).each(function() {
-        $opt = $(this).text();
-        str +=
-           '<div class="ui-widget">'
-            +'<label for="'+$opt+'">find by '+$opt+': </label>'
-            +'<input id="'+$opt+'">'
-          +'</div>'
-          +'<HR>';
-      });
-      $("#selectbox").html( str );
-      var ajaxUrl = "http://cspro.sogang.ac.kr/~cse20101697/cgi-bin/db_display.php";
-      $("#"+$opt+"").autocomplete({
-        source: function(request, response){
-          $.ajax({
-              type: 'get'
-            , url: ajaxUrl
-            , dataType: "json"
-            , data: {$opt : request.term}
-            , success: function(data) {
-              response( $.map( data, function( item ) {
-                var toShow = item.order_number + ' '+ item.id_number + ' '+ item.name + ' '+ item.email + ' '+ item.phone_number + ' '+ item.topping + ' '+ item.pay_method + ' '+ item.call_first + ' '+ item.order_date;
-                return {
-                  label: toShow,
-                  value: toShow
-                }
-              }));
-            }
-          });
-        },
-        minLength: 2
-      });
-    }).trigger( "change" );
-    </script>
-    <!-- <script src="searchAjax.js"></script> -->
+    <script src="searchAjax.js"></script>
   </body>
 </html>
